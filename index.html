@@ -6,14 +6,29 @@
   <title>Zatvobor Methods</title>
   <link type="text/css" rel="stylesheet" href="index.css" media="screen,projection">
   <link type="text/css" rel="stylesheet" href="bower_components/materialize/dist/css/materialize.min.css" media="screen,projection">
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/materialize/dist/js/materialize.min.js"></script>
 </head>
 <body>
   <main>
-    <div class="container">
+      <script>
+      $(document).ready(function(){
+        $('ul.tabs').tabs();
+      });
+      </script>
       <section>
+        <div class="container">
           <div class="row">
-            <div class="card-panel">
+            <div class="col s12 card-panel">
+              <ul class="tabs">
+                <li class="tab"><a class="active" href="#about">About me</a></li>
+                <li class="tab"><a href="#working">Working On</a></li>
+              </ul>
+            </div>
+          </div>
 
+          <div id="about">
+            <div class="section">
               <p class="flow-text">
                 I'm Aleksey Zatvobor, a software engineer working and heavily focused on web software engineering.
               </p>
@@ -29,26 +44,38 @@
               <p>
                 If it’s important, you can email me: a.zatvornitskiy at gmail.com
               </p>
+            </div>
+            <div class="section">
+              <h4>Providing Consultancy Work</h4>
+              <p class="flow-text"><i class="mdi-action-done"> </i>Full-time based engineering commitment. Working in pairs.</p>
+              <p class="flow-text"><i class="mdi-action-done"> </i>Embracing uncertainty into <a href="http://en.wikipedia.org/wiki/INVEST_(mnemonic)" target="_blank">INVEST</a> flavored stories.</p>
+              <p class="flow-text"><i class="mdi-action-done"> </i>Application stack audit.</p>
+              <p class="flow-text"><i class="mdi-action-done"> </i>Contribution to Open Source Software.</p>
+            </div>
+          </div>
 
-              <div class="section">
-                <h4>Working On</h4>
-                <p class="flow-text"><i class="mdi-toggle-radio-button-on"> </i>Developing Ruby on Rails/Ember.js based applications.</p>
-                <p class="flow-text"><i class="mdi-toggle-radio-button-on"> </i>HTML5: Web Components, Service Workers.</p>
-                <p class="flow-text"><i class="mdi-toggle-radio-button-on"> </i>Deploying Server Push, Server Sent Events, WebSockets APIs (Elixir, JavaScript I/O).</p>
-                <p class="flow-text"><i class="mdi-toggle-radio-button-on"> </i>Designing data Consistency, Availability and Partition Tolerance.</p>
-              </div>
-
-              <div class="section">
-                <h4>Providing Consultancy Work</h4>
-                <p class="flow-text"><i class="mdi-navigation-check"> </i>Full-time based engineering commitment. Working in pairs.</p>
-                <p class="flow-text"><i class="mdi-navigation-check"> </i>Embracing uncertainty into <a href="http://en.wikipedia.org/wiki/INVEST_(mnemonic)" target="_blank">INVEST</a> flavored stories.</p>
-                <p class="flow-text"><i class="mdi-navigation-check"> </i>Application stack audit.</p>
-                <p class="flow-text"><i class="mdi-navigation-check"> </i>Contribution to Open Source Software.</p>
-              </div>
+          <div id="working">
+            <div class="section">
+              <p class="flow-text">
+                I have been doing both feature and structural driven development as well using functional and object oriented programming languages.
+              </p>
+              <p class="flow-text">
+                I <i class="mdi-action-favorite"></i> Erlang for distributed nature of that language. JavaScript I/O fits well for simple WebSocket communications setup.
+              </p>
+              <p class="flow-text">
+                Anyway, the best way for doing business logic programming is Ruby. <i class="mdi-action-favorite"></i> Ruby.
+              </p>
+            </div>
+            <div class="section">
+              <h4>Heavily Focusing On</h4>
+              <p class="flow-text"><i class="mdi-action-done-all"> </i>Developing Ruby on Rails/Ember.js based applications.</p>
+              <p class="flow-text"><i class="mdi-action-done-all"> </i>HTML5: Web Components, Service Workers.</p>
+              <p class="flow-text"><i class="mdi-action-done-all"> </i>Deploying Server Push, Server Sent Events, WebSockets APIs (Elixir, JavaScript I/O).</p>
+              <p class="flow-text"><i class="mdi-action-done-all"> </i>Designing data Consistency, Availability and Partition Tolerance.</p>
             </div>
           </div>
       </section>
-    </div>
+
   </main>
 </body>
 </html>
