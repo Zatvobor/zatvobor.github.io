@@ -41,22 +41,47 @@
 
           <div id="about">
             <div class="section">
-              <p class="flow-text">
-                I'm Aleksey Zatvobor, a software engineer working and heavily focused on web software engineering.
-              </p>
-              <p class="flow-text">
-                I teach myself both object and functional programming in ten years and advocate for an engineering mastery and extreme programming approach.
-              </p>
-              <p class="flow-text">
-                My professional aim is to produce a highly pragmatic software that comes for the X, stays for the Y. Keeping product goals, code and process on the same page.
-              </p>
-              <p class="flow-text">
-                Other facets available upon HTTP request: <a href="https://ua.linkedin.com/in/zatvornitskiy" target="_blank">linkedin</a>, <a href="https://github.com/Zatvobor" target="_blank">github</a>, <a href="http://twitter.com/zatvobor" target="_blank">twitter</a>.
-              </p>
-              <p>
-                If it’s important, you can email me: a.zatvornitskiy at gmail.com
-              </p>
-            </div>
+              <div id="profile-card" class="card-panel"></div>
+              <script id="profile-card-template" type="text/x-handlebars-template">
+                <div class="row">
+                  <div class="col s4">
+                    <br>
+                    <img class="circle" src="{{avatar_url}}"></img>
+                  </div>
+                  <div class="col s8">
+                    <p class="flow-text">
+                      I'm Aleksey Zatvobor, a software engineer working and heavily focused on web software engineering.
+                    </p>
+                    <p>Other facets available upon HTTP request: <a href="https://ua.linkedin.com/in/zatvornitskiy" target="_blank">linkedin</a>, <a href="https://github.com/Zatvobor" target="_blank">github</a>, <a href="http://twitter.com/zatvobor" target="_blank">twitter</a>. Location: {{location}}.</p>
+                    <p>If it’s important, you can email me: a.zatvornitskiy at gmail.com</p>
+                  </div>
+                </div>
+              </script>
+              <script>
+                function buildProfileCard() {
+                  var container = $('#profile-card');
+                  var template  = $('#profile-card-template');
+                  var html = Handlebars.compile(template.html());
+
+                  $.ajax({
+                    url: 'https://api.github.com/users/zatvobor'
+                  })
+                    .done(function( data ) { container.append(html(data)); });
+                }
+
+                buildProfileCard();
+              </script>
+
+              <div class="section">
+                <p class="flow-text">
+                  I teach myself both object and functional programming in ten years and advocate for an engineering mastery and extreme programming approach.
+                </p>
+                <p class="flow-text">
+                  My professional aim is to produce a highly pragmatic software that comes for the X, stays for the Y. Keeping product goals, code and process on the same page.
+                </p>
+              </div>
+          </div>
+
             <div class="section">
               <h4>Providing Consultancy Work</h4>
               <p class="flow-text"><i class="mdi-action-done"> </i>Full-time based engineering commitment. Working in pairs.</p>
@@ -113,14 +138,12 @@
               function buildGithubCard(repo) {
                 var container = $('.section.github-cards');
                 var template  = $('#github-card-template');
+                var html = Handlebars.compile(template.html());
 
                 $.ajax({
                   url: 'https://api.github.com/repos/' + repo
                 })
-                  .done(function( data ) {
-                    var html = Handlebars.compile(template.html());
-                    container.append(html(data));
-                  });
+                  .done(function( data ) { container.append(html(data)); });
               }
 
               buildGithubCard('ember-insights/ember-insights');

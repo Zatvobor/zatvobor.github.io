@@ -1,3 +1,7 @@
 main {
   padding-top: 20px;
 }
+
+#about img.circle {
+  width: 100%;
+}
