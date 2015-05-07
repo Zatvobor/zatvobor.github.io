@@ -39,6 +39,14 @@
             </div>
           </div>
 
+          <script id="error-template" type="text/x-handlebars-template">
+            <p><strong>{{responseJSON.message}}, <a href="{{responseJSON.documentation_url}}">here</a>.</strong></p>
+          </script>
+          <script>
+            var errorHtmlTemplate = $('#error-template');
+            var errorHtml = Handlebars.compile(errorHtmlTemplate.html());
+          </script>
+
           <div id="about">
             <div class="section">
               <div id="profile-card" class="card-panel"></div>
@@ -66,7 +74,8 @@
                   $.ajax({
                     url: 'https://api.github.com/users/zatvobor'
                   })
-                    .done(function( data ) { container.append(html(data)); });
+                    .done(function( data ) { container.append(html(data)); })
+                    .error(function( data ) { container.append(errorHtml(data)); });
                 }
 
                 buildProfileCard();
@@ -143,7 +152,8 @@
                 $.ajax({
                   url: 'https://api.github.com/repos/' + repo
                 })
-                  .done(function( data ) { container.append(html(data)); });
+                  .done(function( data ) { container.append(html(data)); })
+                  .error(function( data ) { container.append(errorHtml(data)); });
               }
 
               buildGithubCard('ember-insights/ember-insights');
@@ -163,18 +173,20 @@
             </div>
             <div id="preview" class="section"></div>
             <script>
-              function BuildPreview(preview) {
+              function BuildPreview() {
+                var container = $("#reading #preview");
                 $.ajax({
                   url: 'https://api.github.com/repos/zatvobor/web-engineering/readme',
                   headers: {'Accept': 'application/vnd.github.v3.raw'}
                 })
                   .done(function( data ) {
-                    preview.html(markdown.toHTML(data));
-                    preview.find('li').addClass('flow-text');
-                  });
+                    container.html(markdown.toHTML(data));
+                    container.find('li').addClass('flow-text');
+                  })
+                  .error(function( data ) { container.append(errorHtml(data)); });
               }
 
-              new BuildPreview($("#reading #preview"));
+              new BuildPreview();
             </script>
           </div>
       </section>
