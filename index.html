@@ -48,21 +48,23 @@
             var errorHtml = Handlebars.compile(errorHtmlTemplate.html());
           </script>
 
-          <div id="about">
+          <div id="about" itemscope itemtype="http://schema.org/Person">
             <div class="section">
               <div id="profile-card" class="card-panel"></div>
               <script id="profile-card-template" type="text/x-handlebars-template">
                 <div class="row">
                   <div class="col s4">
                     <br>
-                    <img class="circle" src="{{avatar_url}}"></img>
+                    <a href="{{blog}}" itemprop="url"><img class="circle" src="{{avatar_url}}" itemprop="image"></img></a>
                   </div>
                   <div class="col s8">
                     <p class="flow-text">
-                      I'm Aleksey Zatvobor, a software engineer is working and heavily focused on web software engineering into Agile development.
+                      I'm <span itemprop="name">Aleksey Zatvobor</span>, <span itemprop="description">a software engineer is working and heavily focused on web software engineering into Agile development</span>.
                     </p>
-                    <p>Other facets available upon HTTP request: <a href="https://ua.linkedin.com/in/zatvornitskiy" target="_blank" rel="author">linkedin</a>, <a href="https://github.com/Zatvobor" target="_blank" rel="author">github</a>, <a href="http://twitter.com/zatvobor" target="_blank" rel="author">twitter</a>. Location: {{location}}.</p>
-                    <p>If it’s important, you can email me: <span class="yellow lighten-5">a.zatvornitskiy at gmail.com</span>.</p>
+                    <p>
+                      Other facets available upon HTTP request: <a href="https://ua.linkedin.com/in/zatvornitskiy" target="_blank" rel="author" itemprop="sameAs">linkedin</a>, <a href="{{html_url}}" target="_blank" rel="author" itemprop="sameAs">github</a>, <a href="http://twitter.com/zatvobor" target="_blank" rel="author" itemprop="sameAs">twitter</a>. Location: <span class="yellow lighten-5">{{location}}</span>.
+                    </p>
+                    <p>If it’s important, you can email me: <span class="yellow lighten-5" itemprop="email">{{email}}</span>.</p>
                   </div>
                 </div>
               </script>
@@ -81,26 +83,26 @@
 
                 buildProfileCard();
               </script>
-
-              <div class="section">
-                <p class="flow-text">
-                  I teach myself both object and functional programming in ten years and advocate for an ownership, engineering mastery and extreme programming with minimal overhead.
-                </p>
-                <p class="flow-text">
-                  My professional aim is to produce a highly pragmatic software that comes for the X, stays for the Y. Keeping product goals, code and process on the same page.
-                </p>
-              </div>
-          </div>
-
+            </div>
             <div class="section">
+              <p class="flow-text">
+                I teach myself both object and functional programming in ten years and advocate for an ownership, engineering mastery and extreme programming with minimal overhead.
+              </p>
+              <p class="flow-text">
+                My professional aim is to produce a highly pragmatic software that comes for the X, stays for the Y. Keeping product goals, code and process on the same page.
+              </p>
+            </div>
+            <div class="section" itemscope itemtype="http://schema.org/Service">
               <h4>Providing Consultancy Work</h4>
-              <p class="flow-text"><i class="mdi-action-done"> </i>Full-time based engineering commitment. Working in pairs.</p>
-              <p class="flow-text"><i class="mdi-action-done"> </i>Embracing uncertainty into <a href="http://en.wikipedia.org/wiki/INVEST_(mnemonic)" target="_blank" rel="help">INVEST</a> flavored stories.</p>
-              <p class="flow-text"><i class="mdi-action-done"> </i>Switching to the <a href="http://en.wikipedia.org/wiki/Service-oriented_architecture" target="_blank" rel="help">Service-oriented architecture</a>.</p>
-              <p class="flow-text"><i class="mdi-action-done"> </i>Application stack audit towards simplicity and reliability.</p>
-              <p class="flow-text"><i class="mdi-action-done"> </i>Developing effective testing environment.</p>
-              <p class="flow-text"><i class="mdi-action-done"> </i>A finding of uncertain <a href="http://en.wikipedia.org/wiki/Technical_debt" target="_blank" rel="help">Technical debts</a>.</p>
-              <p class="flow-text"><i class="mdi-action-done"> </i>Extract reusable parts and contribute them back to the Open Source Software.</p>
+              <div itemprop="description">
+                <p class="flow-text"><i class="mdi-action-done"> </i>Full-time based engineering commitment. Working in pairs.</p>
+                <p class="flow-text"><i class="mdi-action-done"> </i>Embracing uncertainty into <a href="http://en.wikipedia.org/wiki/INVEST_(mnemonic)" target="_blank" rel="help">INVEST</a> flavored stories.</p>
+                <p class="flow-text"><i class="mdi-action-done"> </i>Switching to the <a href="http://en.wikipedia.org/wiki/Service-oriented_architecture" target="_blank" rel="help">Service-oriented architecture</a>.</p>
+                <p class="flow-text"><i class="mdi-action-done"> </i>Application stack audit towards simplicity and reliability.</p>
+                <p class="flow-text"><i class="mdi-action-done"> </i>Developing effective testing environment.</p>
+                <p class="flow-text"><i class="mdi-action-done"> </i>A finding of uncertain <a href="http://en.wikipedia.org/wiki/Technical_debt" target="_blank" rel="help">Technical debts</a>.</p>
+                <p class="flow-text"><i class="mdi-action-done"> </i>Extract reusable parts and contribute them back to the Open Source Software.</p>
+              </div>
             </div>
           </div>
 
