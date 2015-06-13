@@ -33,9 +33,9 @@
           <div class="row">
             <div class="col s12 card-panel">
               <ul class="tabs">
-                <li class="tab col s4"><a class="active" href="#about">About me</a></li>
-                <li class="tab col s4"><a href="#working">Working On</a></li>
-                <li class="tab col s4"><a href="#reading">Reading List</a></li>
+                <li class="tab col s4"><a class="active" href="#about" onclick="ga('send', 'pageview', '#about');">About me</a></li>
+                <li class="tab col s4"><a href="#working" onclick="ga('send', 'pageview', '#working');">Working On</a></li>
+                <li class="tab col s4"><a href="#reading" onclick="ga('send', 'pageview', '#reading');">Reading List</a></li>
               </ul>
             </div>
           </div>
@@ -86,21 +86,19 @@
             </div>
             <div class="section">
               <p class="flow-text">
-                I teach myself both object and functional programming in ten years and advocate for an ownership, engineering mastery and extreme programming with minimal overhead.
+                I have been doing both Feature and Structural Driven Development using either Erlang or Ruby programming languages as well.
               </p>
               <p class="flow-text">
                 My professional aim is to produce a highly pragmatic software that comes for the X, stays for the Y. Keeping product goals, code and process on the same page.
               </p>
             </div>
             <div class="section" itemscope itemtype="http://schema.org/Service">
-              <h4>Providing Consultancy Work</h4>
+              <h4 id="consultancy">Providing Consultancy Work</h4>
               <div itemprop="description">
-                <p class="flow-text"><i class="mdi-action-done"> </i>Full-time based engineering commitment. Working in pairs.</p>
-                <p class="flow-text"><i class="mdi-action-done"> </i>Embracing uncertainty into <a href="http://en.wikipedia.org/wiki/INVEST_(mnemonic)" target="_blank" rel="help">INVEST</a> flavored stories.</p>
+                <p class="flow-text"><i class="mdi-action-done"> </i>Full-time based software development. Working in pairs.</p>
                 <p class="flow-text"><i class="mdi-action-done"> </i>Switching to the <a href="http://en.wikipedia.org/wiki/Service-oriented_architecture" target="_blank" rel="help">Service-oriented architecture</a>.</p>
                 <p class="flow-text"><i class="mdi-action-done"> </i>Application stack audit towards simplicity and reliability.</p>
                 <p class="flow-text"><i class="mdi-action-done"> </i>Developing effective testing environment.</p>
-                <p class="flow-text"><i class="mdi-action-done"> </i>A finding of uncertain <a href="http://en.wikipedia.org/wiki/Technical_debt" target="_blank" rel="help">Technical debts</a>.</p>
                 <p class="flow-text"><i class="mdi-action-done"> </i>Extract reusable parts and contribute them back to the Open Source Software.</p>
               </div>
             </div>
@@ -109,7 +107,7 @@
           <div id="working">
             <div class="section">
               <p class="flow-text">
-                I have been doing both Feature and Structural Driven Development using either functional or object oriented programming languages as well.
+                I teach myself both object and functional programming in ten years and advocate for an ownership, engineering mastery and extreme programming with minimal overhead.
               </p>
               <p class="flow-text">
                 I <i class="mdi-action-favorite"></i> Erlang for distributed nature of that language. Whereas, the JavaScript I/O fits well for simple WebSocket communications (no any rails like setup).
@@ -127,7 +125,7 @@
             </div>
 
             <div class="section github-cards">
-              <h4>Contributing to Open Source Software</h4>
+              <h4 id="contributing">Contributing to Open Source Software</h4>
               <p class="flow-text">There are projects released under MIT and Apache 2.0 licenses.</p>
 
               <script id="github-card-template" type="text/x-handlebars-template">
